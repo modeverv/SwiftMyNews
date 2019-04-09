@@ -87,26 +87,26 @@ class AMPagerTabsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        childViewControllers.forEach { $0.beginAppearanceTransition(true, animated: animated) }
+      children.forEach { $0.beginAppearanceTransition(true, animated: animated) }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         updateScrollViewsFrames()
-        childViewControllers.forEach { $0.endAppearanceTransition() }
+      children.forEach { $0.endAppearanceTransition() }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        childViewControllers.forEach { $0.beginAppearanceTransition(false, animated: animated) }
+      children.forEach { $0.beginAppearanceTransition(false, animated: animated) }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        childViewControllers.forEach { $0.endAppearanceTransition() }
+      children.forEach { $0.endAppearanceTransition() }
     }
     
     
@@ -194,9 +194,9 @@ class AMPagerTabsViewController: UIViewController {
         
         let contoller = viewControllers[index]
         if contoller.view?.superview == nil {
-            addChildViewController(contoller)
+          addChild(contoller)
             containerScrollView.addSubview(contoller.view)
-            contoller.didMove(toParentViewController: self)
+          contoller.didMove(toParent: self)
             updateSizes()
         }
         

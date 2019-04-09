@@ -83,8 +83,11 @@ class ViewController4: UIViewController,UITableViewDelegate,UITableViewDataSourc
       if snapPosts == nil {
         return
       }
+      
+      self.posts = [Post]()
 
       for (_, p) in snapPosts! {
+                self.post = Post()
         if let title = p["title"] as? String,let newsURL = p["newsURL"] as? String {
           self.post.title = title
           self.post.newsURL = newsURL

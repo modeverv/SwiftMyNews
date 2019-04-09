@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    //UINavigationBar.appearance().setbac
+    //UINavigationBar.appearance().setBackgroundImage(UIImage(),for: .default)
+    //UINavigationBar.appearance().shadowImage = UIImage()
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    UINavigationBar.appearance().shadowImage = UIImage()
     FirebaseApp.configure()
     return true
   }

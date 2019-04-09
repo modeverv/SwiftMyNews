@@ -82,7 +82,10 @@ class ViewController2: UIViewController,UITableViewDelegate,UITableViewDataSourc
         return
       }
 
+      self.posts = [Post]()
+      
       for (_, p) in snapPosts! {
+        self.post = Post()
         if let title = p["title"] as? String,let newsURL = p["newsURL"] as? String {
           self.post.title = title
           self.post.newsURL = newsURL

@@ -214,9 +214,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-Of-qW6">
-                                <rect key="frame" x="0.0" y="915" width="83" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="ga1-kC-dly"/>
+                                    <barButtonItem title="←" id="qGg-NV-f8N">
+                                        <connections>
+                                            <action selector="tapBack:" destination="5vk-WT-rI1" id="ns2-KW-A7B"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="1v5-5C-1yb"/>
+                                    <barButtonItem title="→" id="KAA-PY-nL9">
+                                        <connections>
+                                            <action selector="tapForward:" destination="5vk-WT-rI1" id="7CX-8A-pxC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="F5J-hH-iRn"/>
+                                    <barButtonItem systemItem="refresh" id="LJz-fE-mbZ">
+                                        <connections>
+                                            <action selector="tapRefresh:" destination="5vk-WT-rI1" id="km9-dr-eDz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dPZ-yn-zve"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ybz-Vj-98d"/>
+                                    <barButtonItem title="↓" id="25G-dn-mCA">
+                                        <connections>
+                                            <action selector="back:" destination="5vk-WT-rI1" id="FZb-xc-vse"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -229,6 +252,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hRY-Ar-9eV"/>
                     </view>
+                    <connections>
+                        <outlet property="backBtn" destination="qGg-NV-f8N" id="XL0-hV-YxE"/>
+                        <outlet property="forwardBtn" destination="KAA-PY-nL9" id="4m2-ae-ZWr"/>
+                        <outlet property="refreshBtn" destination="LJz-fE-mbZ" id="sZz-rA-LxA"/>
+                        <outlet property="toolbar" destination="l4u-Of-qW6" id="sBb-O3-iZ1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpO-wM-9jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,7 +266,7 @@
         <!--View Controller4-->
         <scene sceneID="NRj-Sb-2Su">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="S2C-w3-5b2" customClass="ViewController4" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S2C-w3-5b2" customClass="ViewController4" customModule="SwiftNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="57M-DZ-tMI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -116,9 +116,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hlg-aN-hsR">
                                 <rect key="frame" x="0.0" y="546" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="記事を更新">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="refresh:" destination="Typ-4A-z5s" eventType="touchUpInside" id="bhD-up-8Z4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,6 +131,7 @@
                     <connections>
                         <outlet property="refreshBtn" destination="Hlg-aN-hsR" id="DCS-zR-as3"/>
                         <outlet property="tableView" destination="Mlx-EO-2LK" id="BOp-5b-JJz"/>
+                        <segue destination="5vk-WT-rI1" kind="presentation" identifier="webView" id="nz3-cB-VSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ijx-Vs-ey6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,14 +155,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="ede-6o-dkX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="93" id="ede-6o-dkX">
                                         <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ede-6o-dkX" id="tyB-Og-4Om">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dfsa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oz2-2n-SFX">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dfsa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oz2-2n-SFX">
                                                     <rect key="frame" x="127" y="11" width="233" height="71"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -174,14 +179,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6S-ab-nf2">
+                                <rect key="frame" x="0.0" y="542" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="記事を更新">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="refresh:" destination="Typ-4A-z5s" eventType="touchUpInside" id="fTI-5e-ldc"/>
+                                    <action selector="refresh:" destination="897-7B-kbW" eventType="touchUpInside" id="hYg-4M-ouR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="i7r-bF-uKe"/>
                     </view>
+                    <connections>
+                        <outlet property="refreshBtn" destination="p6S-ab-nf2" id="snB-gs-1k5"/>
+                        <outlet property="tableView" destination="ye7-XE-lzT" id="Mpo-U2-O5u"/>
+                        <segue destination="5vk-WT-rI1" kind="presentation" identifier="webView" id="GfJ-zS-dEo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8h2-Bh-OPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2778" y="-17"/>
+            <point key="canvasLocation" x="2777" y="11"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="W15-Bg-plL">
@@ -190,13 +212,27 @@
                     <view key="view" contentMode="scaleToFill" id="v7a-y7-tDG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-Of-qW6">
+                                <rect key="frame" x="0.0" y="915" width="83" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="ga1-kC-dly"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l4u-Of-qW6" firstAttribute="leading" secondItem="hRY-Ar-9eV" secondAttribute="leading" id="1Ws-PD-KHl"/>
+                            <constraint firstItem="l4u-Of-qW6" firstAttribute="centerX" secondItem="v7a-y7-tDG" secondAttribute="centerX" id="CYO-5f-tZx"/>
+                            <constraint firstItem="l4u-Of-qW6" firstAttribute="trailing" secondItem="hRY-Ar-9eV" secondAttribute="trailing" id="FzQ-4u-TUY"/>
+                            <constraint firstItem="l4u-Of-qW6" firstAttribute="bottom" secondItem="hRY-Ar-9eV" secondAttribute="bottom" id="r79-8I-jUG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hRY-Ar-9eV"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpO-wM-9jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2743" y="680"/>
+            <point key="canvasLocation" x="2777" y="845"/>
         </scene>
         <!--View Controller4-->
         <scene sceneID="NRj-Sb-2Su">
@@ -215,14 +251,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="XpB-2Q-LtQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="93" id="XpB-2Q-LtQ">
                                         <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XpB-2Q-LtQ" id="Jsw-6U-sfC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dfsa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="398-vn-fSM">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dfsa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="398-vn-fSM">
                                                     <rect key="frame" x="127" y="11" width="233" height="71"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -239,14 +275,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yl-L4-tep">
+                                <rect key="frame" x="0.0" y="543" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="記事を更新">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="refresh:" destination="Typ-4A-z5s" eventType="touchUpInside" id="7Tv-3A-oBc"/>
+                                    <action selector="refresh:" destination="S2C-w3-5b2" eventType="touchUpInside" id="jIG-Wa-cTb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hfU-PS-4Cq"/>
                     </view>
+                    <connections>
+                        <outlet property="refreshBtn" destination="9yl-L4-tep" id="Xwv-Cn-RvU"/>
+                        <outlet property="tableView" destination="epz-hM-K7t" id="Gch-R5-DDn"/>
+                        <segue destination="5vk-WT-rI1" kind="presentation" identifier="webView" id="OEu-qt-w3j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9i-Nl-Wgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3470" y="-10"/>
+            <point key="canvasLocation" x="3470" y="10"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRG-34-9o1">
@@ -278,4 +331,7 @@
         <image name="seabackGround" width="1440" height="1920"/>
         <image name="vintagebackground" width="1218" height="1920"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OEu-qt-w3j"/>
+    </inferredMetricsTieBreakers>
 </document>

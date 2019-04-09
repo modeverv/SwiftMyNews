@@ -10,6 +10,9 @@ import UIKit
 
 class WebViewController: UIViewController {
 
+
+  var newsURL:String! = String()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

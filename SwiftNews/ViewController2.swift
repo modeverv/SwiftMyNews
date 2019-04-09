@@ -28,9 +28,22 @@ class ViewController2: UIViewController,UITableViewDelegate,UITableViewDataSourc
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     //タッチされたcell
     selectedNumber = indexPath.row
+    // high light dismiss
+    if let indexPathRow = tableView.indexPathForSelectedRow {
+      tableView.deselectRow(at: indexPathRow, animated: true)
+    }
+    // move ViewController
+    performSegue(withIdentifier: "webView", sender: nil)
+
 
   }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "webView" {
+      let vc = segue.destination as! WebViewController
+      vc.newsURL = posts[selectedNumber].newsURL
+    }
+  }
 
 
   @IBOutlet var refreshBtn: UIButton!
@@ -50,7 +63,43 @@ class ViewController2: UIViewController,UITableViewDelegate,UITableViewDataSourc
     refreshBtn.layer.masksToBounds = true
 
     }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    fetchPosts()
+    tableView.reloadData()
+  }
     
+
+  func fetchPosts(){
+    self.posts = [Post]()
+    self.post = Post()
+    // https://swiftnews-3c1cc.firebaseio.com
+    let ref = Database.database().reference()
+    ref.child("post").queryLimited(toFirst: 10).observeSingleEvent(of: .value) { (snap, error) in
+      let snapPosts = snap.value as? [String:NSDictionary]
+      if snapPosts == nil {
+        return
+      }
+
+      for (_, p) in snapPosts! {
+        if let title = p["title"] as? String,let newsURL = p["newsURL"] as? String {
+          self.post.title = title
+          self.post.newsURL = newsURL
+        }
+        self.posts.append(self.post)
+      }
+      self.tableView.reloadData()
+    }
+  }
+
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 120
+  }
+
+  @IBAction func refresh(_ sender: Any) {
+    fetchPosts()
+  }
 
     /*
     // MARK: - Navigation
